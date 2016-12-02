@@ -1,0 +1,99 @@
+<wm-page name="page1" data-ng-controller="MainPageController">
+    <wm-header name="header1" content="header"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel name="left_panel1" columnwidth="2" content="leftnav"></wm-left-panel>
+        <wm-page-content name="page_content1" columnwidth="8">
+            <wm-tabs name="tabs1">
+                <wm-tabpane name="tabpane1" heading="rolodex_actortab with filter">
+                    <wm-livefilter gridsearch="false" dataset="bind:Variables.RolodexActorData.dataSet" name="livefilter1" class="panel-default">
+                        <wm-layoutgrid name="layoutgrid2">
+                            <wm-gridrow name="gridrow1">
+                                <wm-gridcolumn name="gridcolumn4" columnwidth="12">
+                                    <wm-filter-field field="actorId" display-name="Actor Id" show="true" type="integer" primary-key="false" generator="identity" is-range="false" readonly="false" is-related="false" filter-on="actorId" widget="select" min-placeholder="Enter Value"
+                                    name="filter_field1"></wm-filter-field>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                            <wm-gridrow name="gridrow2">
+                                <wm-gridcolumn name="gridcolumn5" columnwidth="12">
+                                    <wm-filter-field field="firstName" display-name="First Name" show="true" type="string" primary-key="false" generator="null" is-range="false" readonly="false" is-related="false" filter-on="firstName" widget="text" min-placeholder="Enter Value"
+                                    name="filter_field2"></wm-filter-field>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                            <wm-gridrow name="gridrow3">
+                                <wm-gridcolumn name="gridcolumn6" columnwidth="12">
+                                    <wm-filter-field field="lastName" display-name="Last Name" show="true" type="string" primary-key="false" generator="null" is-range="false" readonly="false" is-related="false" filter-on="lastName" widget="text" min-placeholder="Enter Value"
+                                    name="filter_field3"></wm-filter-field>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                        </wm-layoutgrid>
+                        <wm-filter-action key="filter" display-name="Filter" show="true" class="btn-primary" iconname="filter" action="filter()"></wm-filter-action>
+                        <wm-filter-action key="clear" display-name="Clear" show="true" class="btn" iconname="clear" action="clearFilter()"></wm-filter-action>
+                    </wm-livefilter>
+                    <wm-grid gridsearch="false" dataset="bind:Widgets.livefilter1.result" name="grid2" readonlygrid="true" class="panel-default">
+                        <wm-grid-column binding="actorId" caption="Actor Id" type="integer" primary-key="true" generator="identity" readonly="true" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                        <wm-grid-column binding="firstName" caption="First Name" type="string" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                        <wm-grid-column binding="lastName" caption="Last Name" type="string" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    </wm-grid>
+                    <wm-livegrid formlayout="dialog" name="livegrid1">
+                        <wm-grid gridfirstrowselect="true" editmode="dialog" title="City List" dataset="bind:Variables.RolodexCityData.dataSet" navigation="Basic" name="grid2_1" filtermode="multicolumn">
+                            <wm-grid-column binding="cityId" caption="City Id" type="integer" primary-key="true" generator="identity" readonly="true" edit-widget-type="number" show="true"></wm-grid-column>
+                            <wm-grid-column binding="city" caption="City" type="string" generator="assigned" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                            <wm-grid-column binding="country.countryId" caption="Country Id" type="integer" primary-key="true" generator="identity" readonly="true" edit-widget-type="number" show="true" related-entity-name="Country"></wm-grid-column>
+                            <wm-grid-column binding="country.country" caption="Country Country" type="string" generator="assigned" edit-widget-type="text" show="true" related-entity-name="Country" readonly="false"></wm-grid-column>
+                            <wm-grid-column binding="rowOperations" caption="Actions" type="custom" width="120px" readonly="true" sortable="false" searchable="false" show="true"></wm-grid-column>
+                            <wm-grid-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false"></wm-grid-action>
+                            <wm-grid-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-grid-row-action>
+                            <wm-grid-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-grid-row-action>
+                        </wm-grid>
+                        <wm-liveform novalidate="false" errormessage="" title="City Info" formlayout="dialog" iconclass="wi wi-edit" dataset="bind:Variables.RolodexCityData.dataSet" captionalign="left" captionposition="top" name="liveform1">
+                            <wm-layoutgrid columns="2" name="layoutgrid2_1">
+                                <wm-gridrow name="gridrow4">
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn4_1">
+                                        <wm-form-field name="city" displayname="City" required="true" show="true" generator="assigned" primary-key="false" key="city" type="string" is-related="false" maxchars="50" pc-display="true" mobile-display="true" widget="text"></wm-form-field>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn5_1">
+                                        <wm-form-field name="country" displayname="Country" required="true" show="true" generator="assigned" primary-key="false" key="country" type="list" is-related="true" pc-display="true" mobile-display="true" widget="select"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                            <wm-form-field name="cityId" displayname="City Id" required="true" show="false" generator="identity" primary-key="true" key="cityId" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field>
+                            <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action>
+                            <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true"></wm-form-action>
+                        </wm-liveform>
+                    </wm-livegrid>
+                </wm-tabpane>
+                <wm-tabpane name="tabpane2" title="MSSQL">
+                    <wm-livegrid formlayout="dialog" name="livegrid4">
+                        <wm-grid gridfirstrowselect="true" editmode="dialog" title="Table1 List" dataset="bind:Variables.NewProfilestestTable1Data.dataSet" navigation="Basic" name="grid5">
+                            <wm-grid-column binding="id" caption="Id" generator="identity" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true" readonly="true"></wm-grid-column>
+                            <wm-grid-column binding="profilename" caption="Profilename" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                            <wm-grid-column binding="dateofcreation" caption="Dateofcreation" generator="assigned" pcdisplay="true" mobiledisplay="true" type="date"></wm-grid-column>
+                            <wm-grid-action key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-grid-action>
+                            <wm-grid-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow()"></wm-grid-row-action>
+                            <wm-grid-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-grid-row-action>
+                        </wm-grid>
+                        <wm-liveform novalidate="false" errormessage="" title="Table1 Info" formlayout="dialog" iconclass="wi wi-edit" dataset="bind:Variables.NewProfilestestTable1Data.dataSet" captionalign="left" captionposition="top" name="liveform4">
+                            <wm-layoutgrid columns="2" name="layoutgrid5">
+                                <wm-gridrow name="gridrow7">
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn10">
+                                        <wm-form-field name="profilename" displayname="Profilename" required="false" show="true" generator="assigned" primary-key="false" key="profilename" type="string" is-related="false" maxchars="255" pc-display="true" mobile-display="true"
+                                        widget="text"></wm-form-field>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn11">
+                                        <wm-form-field name="dateofcreation" displayname="Dateofcreation" required="false" show="true" generator="assigned" primary-key="false" key="dateofcreation" type="date" is-related="false" pc-display="true" mobile-display="true"
+                                        widget="date"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                            <wm-form-field name="id" displayname="Id" required="true" show="false" generator="identity" primary-key="true" key="id" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field>
+                            <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action>
+                            <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true"></wm-form-action>
+                        </wm-liveform>
+                    </wm-livegrid>
+                </wm-tabpane>
+            </wm-tabs>
+        </wm-page-content>
+        <wm-right-panel name="right_panel1" columnwidth="2" content="rightnav"></wm-right-panel>
+    </wm-content>
+    <wm-footer name="footer1" content="footer"></wm-footer>
+</wm-page>

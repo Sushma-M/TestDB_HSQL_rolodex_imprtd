@@ -1,0 +1,73 @@
+{
+  "NewProfilestestTable1Data" : {
+    "_id" : "wm-NewProfilestestTable1Data-wm.LiveVariable-1480485127858",
+    "name" : "NewProfilestestTable1Data",
+    "owner" : "Page",
+    "category" : "wm.LiveVariable",
+    "dataBinding" : [ ],
+    "operation" : "read",
+    "dataSet" : [ ],
+    "type" : "Table1",
+    "isList" : true,
+    "saveInPhonegap" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "inFlightBehavior" : "executeLast",
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "transformationRequired" : false,
+    "liveSource" : "NewProfilestest",
+    "ignoreCase" : true,
+    "matchMode" : "start",
+    "propertiesMap" : {
+      "columns" : [ {
+        "fieldName" : "id",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "ID",
+        "isPrimaryKey" : true,
+        "notNull" : true,
+        "length" : 255,
+        "precision" : 10,
+        "generator" : "identity",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "profilename",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "profilename",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "dateofcreation",
+        "type" : "date",
+        "fullyQualifiedType" : "date",
+        "columnName" : "dateofcreation",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 10,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      } ],
+      "entityName" : "Table1",
+      "fullyQualifiedName" : "com.testdb_hsql.newprofilestest.Table1",
+      "tableType" : "TABLE",
+      "primaryFields" : [ "id" ]
+    },
+    "isDefault" : true,
+    "bindCount" : 1,
+    "tableName" : "TABLE1",
+    "tableType" : "TABLE",
+    "properties" : [ ],
+    "relatedTables" : [ ],
+    "package" : "com.testdb_hsql.newprofilestest.Table1"
+  }
+}
